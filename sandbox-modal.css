@@ -1,0 +1,69 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* 1. The Overlay: Hidden by default */
+.modal {
+    display: none; /* Changed from commented out */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Slightly darker for better focus */
+    z-index: 1000;
+    
+    /* Center the content */
+    align-items: center;
+    justify-content: center;
+}
+
+/* 2. The Trigger: When JS adds the .active class */
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    position: relative; /* So the close button can be positioned absolute */
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. The Close Button (X) */
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #666;
+}
+
+/* 4. Input Styling */
+.input {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.comment-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.submit {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
