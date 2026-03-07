@@ -1,0 +1,21 @@
+/* <section class="comments-container">
+    <div class="comments">
+        <p "comment-text">comment
+        <span class="author"></span>
+        <span class="date"></span>
+        </p>
+    </div>
+</section> */
+
+.comments {
+    display:flex;
+    padding:10px;
+}
+
+.comment-text {
+    flex:1;
+}
+
+.author {
+    margin-right:10px;
+}
