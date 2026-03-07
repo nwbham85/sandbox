@@ -1,6 +1,8 @@
 import { initModal } from './sandbox-modal.js';
-import {initComments} from '.sandbox-comments.js';
+import {initComments} from './sandbox-comments.js';
 
-// This kicks everything off
-initModal();
-initComments();
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("DOM fully loaded and parsed");
+    initModal();
+    initComments();
+});

@@ -1,6 +1,3 @@
-// sandbox-comments.js
-
-
 
 export function initComments() {
     // Note: Changed from '.submit' to '.click' to match your HTML
@@ -26,10 +23,12 @@ export function initComments() {
         const now = new Date().toLocaleDateString();
         
         newComment.innerHTML = `
+            
             <p class="comment-text">${text}</p>
             <span class="author">Guest User</span>
             <span class="date">${now}</span>
             <hr>
+            
         `;
 
         // Add it to the top of the list
