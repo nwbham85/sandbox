@@ -1,3 +1,4 @@
+const STORAGE_KEY = 'sandbox_comments_v1';
 
 export function initComments() {
     const postBtn = document.querySelector('.click');
@@ -85,4 +86,13 @@ export function edit(commentsDisplay) {
     closeBtn.addEventListener('click', () => {
         editModal.classList.remove('active');
     });
+}
+
+function getCommentsFromStorage() {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+}
+
+function saveToStorage() {
+    localStorage.setItem(STORAGE_KEY, JSON.parse(comments));
 }
