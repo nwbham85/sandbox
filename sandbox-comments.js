@@ -1,41 +1,35 @@
 
 export function initComments() {
-    // Note: Changed from '.submit' to '.click' to match your HTML
     const postBtn = document.querySelector('.click');
     const userCommentInput = document.querySelector('.comment-input');
     const commentsDisplay = document.querySelector('.comments');
 
-    if (!postBtn || !userCommentInput) return;
+    if (!postBtn || !userCommentInput || !commentsDisplay) return;
+
+    // Initialize the edit listener once
+    edit(commentsDisplay);
 
     postBtn.addEventListener('click', () => {
         const text = userCommentInput.value.trim();
+        if (text.length < 3) return alert("Please enter at least 3 characters.");
 
-        // Validation logic
-        if (text.length < 3) {
-            alert("Please enter at least 3 characters.");
-            return;
-        }
-
-        // Create the comment structure
         const newComment = document.createElement('div');
-        newComment.classList.add('comment-item'); // Good for CSS tracking!
+        newComment.classList.add('comment-item'); 
         
         const now = new Date().toLocaleDateString();
-        
         newComment.innerHTML = `
-            
             <p class="comment-text">${text}</p>
             <span class="author">Guest User</span>
             <span class="date">${now}</span>
-            <span class="button"><button class="primaryBtn" type='click'>Edit</button>  
+            <span class="button"><button class="editBtn primaryBtn">Edit</button></span>
         `;
 
-        // Add it to the top of the list
         commentsDisplay.prepend(newComment);
-
-        // Clear input and close modal (optional)
         userCommentInput.value = '';
-        document.querySelector('.modal').classList.remove('active');
+        
+        // Ensure we only close the 'Create' modal, not the 'Edit' one
+        const createModal = document.querySelector('.modal:not(.edit-modal)');
+        if (createModal) createModal.classList.remove('active');
     });
 }
 
@@ -50,4 +44,45 @@ export function post(message) {
 
     // Append it to the modal content
     document.querySelector('.modal-content').appendChild(commentDisplay);
+}
+
+export function edit(commentsDisplay) {
+    const editModal = document.querySelector('.edit-modal');
+    const editInput = editModal.querySelector('.edit-comment');
+    const updateBtn = editModal.querySelector('.click');
+    const closeBtn = editModal.querySelector('.modal-close');
+    
+    let currentCommentTextElement = null;
+
+    // 1. Listen for clicks on the comments container (Event Delegation)
+    commentsDisplay.addEventListener('click', (e) => {
+        if (e.target.classList.contains('editBtn')) {
+            // Find the text element related to this specific button
+            const commentItem = e.target.closest('.comment-item');
+            currentCommentTextElement = commentItem.querySelector('.comment-text');
+
+            // Pre-fill the modal input with existing text
+            editInput.value = currentCommentTextElement.textContent;
+
+            // Open the modal
+            editModal.classList.add('active');
+        }
+    });
+
+    // 2. Handle the "Update" button inside the modal
+    updateBtn.addEventListener('click', () => {
+        if (editInput.value.trim().length >= 2) {
+            // Update the text in the UI
+            currentCommentTextElement.textContent = editInput.value.trim();
+            // Close modal
+            editModal.classList.remove('active');
+        } else {
+            alert("Comment must be at least 2 characters.");
+        }
+    });
+
+    // 3. Handle closing the modal
+    closeBtn.addEventListener('click', () => {
+        editModal.classList.remove('active');
+    });
 }

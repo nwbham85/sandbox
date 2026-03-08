@@ -25,7 +25,9 @@
     }
 </style>
 <body>
-        <div class="modal">
+
+    <!-- post comment modal -->
+<div class="modal">
     <div class="modal-content">
         <span class="modal-close" style="cursor:pointer">&times;</span> 
         
@@ -33,6 +35,19 @@
         <div class="input">
             <input type="text" class="comment-input" required minlength = 3 placeholder="your comments">
             <button type="button" class="click">Post</button>
+        </div>
+    </div>
+</div>
+
+<!-- edit modal -->
+<div class="modal edit-modal">
+    <div class="modal-content">
+        <span class="modal-close" style="cursor:pointer">&times;</span> 
+        
+        <h3>Edit Comment</h3>
+        <div class="input">
+            <input type="text" class="edit-comment" required minlength = 2 placeholder="edit comment">
+            <button type="button" class="click">Edit</button>
         </div>
     </div>
 </div>
