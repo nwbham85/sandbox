@@ -2,6 +2,7 @@
 
 .comment-item {
     padding:30px;
+    border-bottom: 3px solid black;
 }
 
 .comment-text {
@@ -9,3 +10,10 @@
     
 }
 
+.author {
+    margin-right:20px;
+}
+
+.date {
+    margin-right:20px;
+}

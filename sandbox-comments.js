@@ -27,8 +27,7 @@ export function initComments() {
             <p class="comment-text">${text}</p>
             <span class="author">Guest User</span>
             <span class="date">${now}</span>
-            <hr>
-            
+            <span class="button"><button class="primaryBtn" type='click'>Edit</button>  
         `;
 
         // Add it to the top of the list
