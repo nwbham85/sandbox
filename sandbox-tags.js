@@ -1,18 +1,10 @@
  const tags = { // create tag object
     extractTags(text) {
-        //grab the comment
-        const text = document.querySelector('.comment-input');
-            // verify the input is not empty
-        if(text.value === true && text.length > 2) {
-            // put comment into an array
-            const commentArray = [];
-            commentArray.push(text);
-            // scan each index (word) for a '#'
-            commentArray.forEach()
-
-        } else {
-            return;
-        }
+        //extract hashtag style tags from comment string
+        //return array of normalized tags strings ex 'city'
+        if (!text || typeof text !== 'string') return [];
+        const matches = text.match(/#[\w-]+/g);
+        return matches ? matches.map(tag => this.normalizeTag(tag)) : [];
     },
 
     normalizeTag(tag){
