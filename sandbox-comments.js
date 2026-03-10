@@ -1,3 +1,5 @@
+import { tags } from './sandbox-tags.js'
+
 const STORAGE_KEY = 'sandbox_comments_v1';
 
 // Helper Functions
