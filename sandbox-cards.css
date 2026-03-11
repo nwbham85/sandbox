@@ -1,0 +1,13 @@
+.card {
+    border:1px solid black;
+    border-radius: 10px;
+    background-color: lightgray;
+}
+
+.card h3 {
+    padding:20px;
+}
+
+.card-content {
+    padding:20px;
+}
