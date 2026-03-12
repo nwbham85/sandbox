@@ -11,6 +11,11 @@
 .card-content {
     padding:20px;
     display:flex;
+    flex-direction: column;
     gap:10px;
     
+}
+
+.card-content .title {
+    font-weight:bold;
 }

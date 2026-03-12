@@ -27,8 +27,67 @@
     <div class="card">
       <h3>map()</h3>
         <div class="card-content">
-          <p>What it does:</p>
-          <p>returns:</p>
+          <p class="title">What it does:</p><span>Transforms each item in the array.</span>
+          <p class="title">returns:</p><span>A new array. Does not modify original.</span>
+          <p class="title">Transform Objects within arrays:</p>
+            <pre>
+              <code>
+                const users = [
+                  {name: "Alice", age: 30},
+                  {name: "Bob", age: 40},
+                  {name: "Charlie", age: 25}
+                ];
+
+                const names = users.map(user => user.name);
+
+                console.log(names);
+              </code>
+            </pre>
+          <p class="title">Creating new objects</p>
+            <pre>
+              <code>
+                const users = [
+                  {name: "Alice", age: 30},
+                  {name: "Bob", age: 40}
+                ];
+
+                const profiles = users.map(user => ({
+                  username: user.name,
+                  isAdult: user.age >= 18
+                }));
+
+                console.log(profiles);
+              </code>
+            </pre>
+          <p class="title">Using map() with the DOM</p>
+          <p>ex: Generating html from data</p>
+            <pre>
+              <code>
+                  const tasks = [
+                      {text: "Buy milk"},
+                      {text: "Study JavaScript"},
+                      {text: "Walk dog"}
+                    ];
+
+                    const html = tasks.map(task => {
+                
+                    return `&lt;li&gt;${task.text}&lt;/li&gt;`;
+                    });
+
+                    console.log(html);
+              </code>
+            </pre>
+          <p>Result:</p>
+            <pre>
+              <code>
+                  [
+                    "&lt;li&gt;Buy milk&lt;li&gt;",
+                    "&lt;li&gt;Study JavaScript&lt;li&gt;",
+                    "&lt;li&gt;walk dog&lt;li&gt;",
+ 
+                  ]
+              </code>
+            </pre>
         </div>
     </div>
 
